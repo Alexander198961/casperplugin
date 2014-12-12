@@ -1,4 +1,3 @@
-
 function getXPath( element )
 {
 var val=element.value;
@@ -13,26 +12,18 @@ var val=element.value;
     }
     return xpath;
 }
-arr = new Array();
+arr = new Array()
 $( "body" ).on( "click", function( event ) {
-arr.push(getXPath(event.target)) ;
+  arr.push(event.target.tagName)
+})
+self.port.on('click', function() {
+//var tg
+//tg= $( "body" ).on( "click", function( event ) {
+// return event.target.tagName
+//})
+//var tg=getXPath(event.target)
+self.port.emit('response', arr);
 
-}
-);
-self.port.on("getElements", function() {
-  //tag="p"
-  //var arr =new Array("sdadas","dsad","dsadasd")
-  //var elements = document.getElementsByTagName(tag);
-  for (var i = 0; i < arr.length; i++) {
-    self.port.emit("gotElement", arr[i]);
-  }
 });
-~  
 
-//self.port.on("getElements", function() {
-  //  for(i=0;i<arr.length;i++)
-    //{
-     // self.port.emit("gotElement", arr[i]);
-   // }
-//});
 

@@ -1,6 +1,17 @@
-var pageMod = require("sdk/page-mod");
+var pageWorkers = require("sdk/page-worker");
 
-pageMod.PageMod({
-  include: "*",
-  contentScript: "./my-script.js"
+// This content script sends header titles from the page to the add-on:
+var script = "var elements = document.querySelectorAll('h2 > span'); " +
+             "for (var i = 0; i < elements.length; i++) { " +
+             "  postMessage(elements[i].textContent) " +
+             "}";
+
+// Create a page worker that loads Wikipedia:
+pageWorkers.Page({
+  contentURL: "http://en.wikipedia.org/wiki/Internet",
+  contentScript: script,
+  contentScriptWhen: "ready",
+  onMessage: function(message) {
+    console.log(message);
+  }
 });

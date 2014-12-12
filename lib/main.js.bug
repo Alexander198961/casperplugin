@@ -6,11 +6,10 @@ pageMod.PageMod({
   include: "*",
   contentScriptFile : [ data.url("jquery-1.10.2.js") , data.url("jquery-1.10.2.min.js") , data.url("mytest.js") ],
   onAttach: function(worker) {
-    //worker.port.emit('click' );
-      worker.port.on('response',function( message)
+    worker.port.emit('click' );
+      worker.port.on('detach',function( message)
       { 
       console.log(message)
      }
     );
-}
-});
+}});

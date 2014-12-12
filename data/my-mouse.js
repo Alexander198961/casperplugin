@@ -1,4 +1,4 @@
-
+/*
 function getXPath( element )
 {
 var val=element.value;
@@ -13,8 +13,43 @@ var val=element.value;
     }
     return xpath;
 }
-$( "body" ).on( "click", function( event ) {
-console.log( getXPath(event.target) );
-}
-);
+*/
+self.port.on('click', function() {
+self.port.emit('response', 'lalala');
+
+});
+/*
+//$( "body" ).on( "click", function( event ) {
+//self.port.emit(arr.push(getXPath(event.target))) ;
+//console.log('aaaaaaaaaaaa')
+//}
+//);
+//self.port.on("getElements", function() {
+ // console.log('zzzzzzzzzz')
+  //for (var i = 0; i < arr.length; i++) {
+    //self.port.emit("gotElement", arr[i]);
+    
+ // }
+//});
+//self.port.on("getElements", function() {
+//  var arr =new Array("sdadas","dsad","dsadasd")
+//  for (var i = 0; i < arr.length; i++) {
+ //   self.port.emit("gotElement", arr[i]);
+ // }
+//});
+//self.port.on("getElements", function() {
+ 
+  //for (var i = 0; i < arr.length; i++) {
+    //self.port.emit("gotElement", arr[i]);
+  //}
+//});
+  
+
+//self.port.on("getElements", function() {
+  //  for(i=0;i<arr.length;i++)
+    //{
+     // self.port.emit("gotElement", arr[i]);
+   // }
+//});
+*/
 

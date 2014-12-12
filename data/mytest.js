@@ -13,26 +13,23 @@ var val=element.value;
     }
     return xpath;
 }
-arr = new Array();
+var click;
 $( "body" ).on( "click", function( event ) {
-arr.push(getXPath(event.target)) ;
+  click=event.target.tagName
+  console.log('dsadasdas')
+  self.port.emit('response','hello world') 
+//  console.log('dasdasdas', click );
+})
 
-}
-);
-self.port.on("getElements", function() {
-  //tag="p"
-  //var arr =new Array("sdadas","dsad","dsadasd")
-  //var elements = document.getElementsByTagName(tag);
-  for (var i = 0; i < arr.length; i++) {
-    self.port.emit("gotElement", arr[i]);
-  }
-});
-~  
-
-//self.port.on("getElements", function() {
-  //  for(i=0;i<arr.length;i++)
-    //{
-     // self.port.emit("gotElement", arr[i]);
-   // }
+//self.port.on("detach", function() {
+ // console.log("AAAAAAAA")
+//})
+//self.port.on('detach', function() {
+//self.port.on('message',  'AAASASAsASASAS');
+//})
 //});
+//self.addEventListener('mousedown', function(evt) {
+//  self.postMessage(evt.data);
+//}, false);
+
 
