@@ -14,11 +14,10 @@ var val=element.value;
     return xpath;
 }
 var click;
+
 $( "body" ).on( "click", function( event ) {
-  click=event.target.tagName
-  console.log('dsadasdas')
-  self.port.emit('response','hello world') 
-//  console.log('dasdasdas', click );
+  self.port.emit('response', window.location.href)
+  self.port.emit('response', getXPath(event.target)) 
 })
 
 //self.port.on("detach", function() {
