@@ -13,10 +13,18 @@ var val=element.value;
     }
     return xpath;
 }
-var click;
+var click=0;
 
+self.port.emit('response', window.location.href)
 $( "body" ).on( "click", function( event ) {
-  self.port.emit('response', window.location.href)
+
+// var xpath=getXPath(event.target)
+ //var passedJson=JSON.stringfy({url:window.location.href, position:xpath });
+  // var ValidJSON = JSON.stringify({ id:click , url: window.location.href, position:xpath});
+
+// self.port.emit('response', ValidJSON)
+  //self.port.emit('response', window.location.href)
+
   self.port.emit('response', getXPath(event.target)) 
 })
 
